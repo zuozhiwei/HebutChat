@@ -18,4 +18,13 @@
 		<servlet-name>firstExample</servlet-name>
 		<url-pattern>/firstExample</url-pattern>
 	</servlet-mapping>
+	
+  	<servlet>
+		<servlet-name>feedback</servlet-name>
+		<servlet-class>com.hebut.controller.FeedbackController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>feedback</servlet-name>
+		<url-pattern>/feedback</url-pattern>
+	</servlet-mapping>
 </web-app>
