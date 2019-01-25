@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>微博评论</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=no">
+	<meta charset="UTF-8">
+	<style type="text/css">
+		body{
+			margin: 0;
+		}
+		.bg{
+			background-color: #d3d7dc;
+			width: 100%;
+			height: 100%;
+		}
+		.weibocontent{
+
+		}
+		.title{
+			background-color: white;
+			height: 50px;
+		}
+		.backicon{
+			float: left;
+			height: 50px;
+			line-height: 50px;
+			padding-left: 5%;
+			cursor: pointer;
+		}
+		img{
+			vertical-align: middle;
+		}
+		.titletext{
+			text-align: center;
+			margin: 0;
+			height: 50px;
+			line-height: 50px;
+			width: 30%;
+			margin: 0 auto;
+			font-size: 18px;
+		}
+		.maintext{
+			margin-top: 10px;
+			background-color: white;
+			height: 200px;
+		}
+		.share{
+			background-color: white;
+			height: 40px;
+			line-height: 40px;
+			/*border: 1px solid Red;*/
+		}
+		.sharetext{
+			padding-left: 3%;
+			font-size: 15px;
+		}
+		.talking{
+			margin-top: 10px;
+			background-color: white;
+		}
+		.talking span{
+			color: gray;
+			cursor: pointer;
+		}
+		.talkingtitle{
+			margin-left: 3%;
+			margin-right: 3%;
+			height: 40px;
+			line-height: 40px;
+		}
+		.zhuanfa:hover{
+			color: black;
+		}
+		.pinglun:hover{
+			color: black;
+		}
+		.support{
+			float: right;		
+		}
+	</style>
+</head>
+<body>
+	<div class="bg">
+		<div class="title">
+			<div class="backicon">
+				<img src="https://s2.ax1x.com/2019/01/18/k93LlQ.png" alt="返回" border="0" width="20px" height="20px" />
+			</div>
+		    <div class="titletext">微博评论</div>
+	    </div>
+	    <div class="maintext">
+		   <div class="weibocontent">     <!-- 引用正文部分 -->
+			    正文部分
+		   </div>
+	    </div>
+	    <div class="share">
+		    <span class="sharetext">分 享</span>                         
+		    <!--分享功能仿照微博，可以分享到qq、微信等，如果功能太复杂，就做成静态的，或者直接删去这一块 -->
+	    </div>
+	    <div class="talking">
+	    	<div class="talkingtitle">
+	    		<span class="zhuanfa">转 发 10 &nbsp;&nbsp;</span>       <!--   此处数字应为变量，未完成 -->
+	    		<span class="pinglun">评 论 5 </span>
+	    		<div class="support">赞 20</div>
+	    	</div>
+	    	<div>
+	    		评论区                   <!--  评论区域，未完成 -->
+	    	</div>
+	    </div>		
+	</div>
+</body>
+</html>
+
