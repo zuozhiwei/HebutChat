@@ -72,36 +72,63 @@
 		}
 		.text_content{
 			margin-top:10px;
-			height: 150px;
+			height: 160px;
 		}
 		#views{
-			width: 70%;
+			width: 68%;
 			height: 80%;
 			display: block;
 			margin: 0 auto;
 			resize: none;
-			padding: 10px;
+			padding: 5px;
 			font-family: monospace;
-			font-size: 16px;
+			font-size: 14px;
 			border-radius: 3px;
 		}
-		.text_content_submit{
-			text-align: center;
-			margin-top: 20px;
+		.fun_area{
+			text-align: right;		     
+		}
+		.express{
+			float: left;
+    		color: #000;
+    		text-decoration: none;
+    		font-size: 14px;
+    		height: 36px;
+    		line-height: 36px;
+    		margin-left: 14%;
+		}
+		#expressions{
+			background: url("resource/img/comment/express_icon.png");
+			height: 30px;
+			width: 30px;
+			display: inline-block;
+			background-size: 100%;
+			background-repeat: no-repeat;
+		}
+		.tips{
+			vertical-align: middle;
+			font-size: 10px;
+			margin-right: 5px;
+			/*font-size: 18px;*/
+		}
+		.limit{
+			font-size: 18px;
 		}
 		.sub_button{
-			width: 140px;
+			width: 80px;
     	    height: 36px;
-            background-color: #1890FF;
+            background-color: #DDDDDD;
             color: white;
             border: 0;
-            border-radius: 5px;
+            border-radius: 3px;
             font-weight: bold;
+            margin-right: 14.5%;
+            vertical-align: middle;
 		}
 	</style>
 	<script>
 		//提交反馈
-		function subComment(){
+	function subComment(){
 			var comment_content = $("#views").val();
 			if(comment_content == ""){
 				alert("内容不能为空");
@@ -128,7 +155,39 @@
 			     }
 			});
 			
-		}	
+	}	
+
+    $(function(){
+		$("#views").keydown(function(e)
+		{
+        	var code = e.charCode || e.which || e.keyCode;
+        	var text = $(this).val(),
+               	len = text.length,
+            	limit = 140,
+            	s = limit-len,
+            	$limit = $("#limit");
+            var num = document.getElementById("limit");
+            var btn = document.getElementById("btn");
+            if(s>=140)
+            {
+            	btn.style="background-color:#DDDDDD";
+            }
+            else btn.style="background-color:#1890FF";
+            if(s>10)
+            {
+            	num.style.color = "black";
+            }
+            if(s<=10)
+            {
+            	num.style.color = "red";
+            }
+        	if(s<0){
+            	alert("警告：内容已超过140字");
+        	}
+        	s = s<=0 ? 0 : s;
+        	$("#limit").html(s);
+    	});
+	})
 	</script>
 
 </head>
@@ -155,11 +214,16 @@
 	    	</div>
 	    	<div id="writecontent">
 	    		<div class="text_content">
-	    			<textarea id="views" placeholder="写评论..."></textarea>
+	    			<textarea id="views" placeholder="写评论..." autofocus="autofocus"></textarea>
 	    		</div>
-	    		<div class="text_content_submit">
-	    			<button class="sub_button"onclick="subComment()">发表</button>
+	    		<div class="fun_area">
+	    			<a href="javascript:;" class="express"> <em id="expressions"></em> </a>
+	    			<span class="tips"><em class="limit" id="limit">140</em>/140</span>                                        
+	    			<input id="btn" type="button" class="sub_button" onclick="subComment()" value="发布"></input>	
 	    		</div>
+	    			
+	    		</div>
+	    		
 	    			
 	    	</div>
 	    </div>		
