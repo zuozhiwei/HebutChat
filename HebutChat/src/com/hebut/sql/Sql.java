@@ -123,25 +123,4 @@ public class Sql {
 		}
 		return list;
 	}
-	
-	/**
-	 * 添加微博评论记录
-	 * @param taking  评论
-	 * @return			true or false
-	 */
-	public Boolean addComment(String taking) {
-		connect();
-		String sql = "insert into feedback(`taking`) values('"+taking+"')";
-		try {
-			stmt = conn.createStatement();
-			stmt.executeUpdate(sql);
-		} catch (SQLException e) {
-			return false;
-		} finally {
-			close();
-		}
-		return true;
-	}
 }
-
-
