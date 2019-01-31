@@ -1,0 +1,148 @@
+		body{
+			margin: 0;
+		}
+		.bg{
+			background-color: #d3d7dc;
+			width: 100%;
+			height: 100%;
+		}
+		#weibocontent{
+
+
+		}
+		.title{
+			background-color: white;
+			height: 50px;
+		}
+		.backicon{
+			float: left;
+			height: 50px;
+			line-height: 50px;
+			padding-left: 5%;
+			cursor: pointer;
+		}
+		img{
+			vertical-align: middle;
+		}
+		.titletext{
+			text-align: center;
+			margin: 0;
+			height: 50px;
+			line-height: 50px;
+			width: 30%;
+			margin: 0 auto;
+			font-size: 18px;
+		}
+		.maintext{
+			margin-top: 10px;
+			background-color: white;
+			height: 200px;
+		}
+		.talking{
+			margin-top: 10px;
+			background-color: white;
+		}
+		.talking span{
+			color: gray;
+			cursor: pointer;
+		}
+		.talkingtitle{
+			margin-left: 3%;
+			margin-right: 3%;
+			height: 40px;
+			line-height: 40px;
+		}
+		.pinglun:hover{
+			color: black;
+		}
+		.write{
+			float: right;
+			cursor: pointer;
+		}
+		#writecontent{
+			display: none;
+			height: 50%;
+		}
+		.text_content{
+			margin-top:10px;
+			height: 160px;
+		}
+		#views{
+			width: 68%;
+			height: 80%;
+			display: block;
+			margin: 0 auto;
+			resize: none;
+			padding: 5px;
+			font-family: monospace;
+			font-size: 14px;
+			border-radius: 3px;
+		}
+		.fun_area{
+			text-align: right;	
+			     
+		}	
+		#expressions{
+			float: left;  
+			height: 30px;
+			line-height: 30px;
+			cursor: pointer;
+			margin-left: 14%;
+		}
+		.tips{
+			vertical-align: middle;
+			font-size: 10px;
+			margin-right: 5px;
+		}
+		.limit{
+			font-size: 18px;
+		}
+		.sub_button{
+			width: 80px;
+    	    height: 36px;
+            background-color: #DDDDDD;
+            color: white;
+            border: 0;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-right: 14.5%;
+            vertical-align: middle;
+		}
+		
+		.exp_list{
+		    width: 90%;
+		    margin:0 auto;
+		    box-shadow: 0 4px 20px 1px rgba(0,0,0,0.2);
+		    display: none;
+		}
+		.exp_list .close{
+		    width: 14px;
+		    height: 14px;
+		    display: block;
+		    float: right;
+		    padding: 4px;
+		    text-align: center;
+		    line-height: 14px;
+		    cursor: pointer;
+		}
+		.exp_list .content{
+		    border-top: 1px solid #ddd;
+		    padding-left: 1px;
+		}
+		.exp_list li{
+		    float: left;
+		    border-right: 1px solid #e8e8e8;
+		    border-bottom: 1px solid #e8e8e8;
+		    padding: 4px;
+		}
+		.exp_list li img{
+		    cursor: pointer;
+		}
+        .clearfix{
+	      margin-top: 5px;
+	    }
+	    ul{
+	    	list-style:none;
+	    	margin:0;
+	    	padding:0;
+	    }
