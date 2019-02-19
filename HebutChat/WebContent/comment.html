@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<script type="text/javascript" src="resource/js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="resource/js/comment/comment_check.js"></script>
+	<script type="text/javascript" src="resource/js/comment/comment.js"></script>
 	<link rel="stylesheet" type="text/css" href="resource/css/comment/comment.css">
 </head>
 <body>
@@ -14,7 +15,7 @@
 			<div class="backicon">
 				<img src="https://s2.ax1x.com/2019/01/18/k93LlQ.png" alt="返回" border="0" width="20px" height="20px" onclick='window.history.back(-1)'/>
 			</div>
-		    <div class="titletext">微博评论</div>
+		    <div id="title_text" class="titletext">微博正文</div>		    
 	    </div>
 	    <div class="maintext">
 		   <div id="weibocontent">     <!-- 引用正文部分 -->
@@ -23,11 +24,27 @@
 	    </div>
 	    <div class="talking">
 	    	<div class="talkingtitle">
-	    		<span id="pinglun_show" class="pinglun" onclick="javascript:{$('#talkingcontent').show();$('#writecontent').hide()}">评 论 <span id="pinglun_num"></span> </span>   <!-- 评论数用id设置 -->
-	    		<div id="pinglun_write" class="write"><span onclick="javascript:{$('#talkingcontent').hide();$('#writecontent').show();$('#views').focus()}">写评论<span></div>
+	    			<div id="zhuanfa_show" >
+	    				<span style="display: block;" class="zhuanfa">转发 <span id="zhuanfa_num">10</span></span>	    				
+	    				<img id="line_zhuanfa" src="resource/img/comment/下划线 (1).png" height="3px" width="30px">	    					
+	    			</div>
+	    			<div id="pinglun_show">
+	    				<span style="display: block;" class="pinglun">评论 <span id="pinglun_num">20</span> </span>   
+	    				<img id="line_pinglun" src="resource/img/comment/下划线.png" height="3px" width="30px">
+	    			</div>
+	    			<div id="dianzan_show" class="dianzan">
+	    				<span style="display: block;" >赞 <span id="dianzan_num">30</span></span>
+	    				<img id="line_zan" src="resource/img/comment/下划线 (1).png" height="3px" width="30px">
+	    			</div>
 	    	</div>
-	    	<div id="talkingcontent">
-	    		评论区                   <!--  评论区域，未完成 -->
+	    	<div id="zhuanfa_content">
+	    		转发显示
+	    	</div>
+	    	<div id="talking_content">
+	    		评论显示               
+	    	</div>
+	    	<div id="dianzan_content">
+	    		点赞记录
 	    	</div>
 	    	<div id="writecontent">
 	    		<div class="text_content">
@@ -35,7 +52,7 @@
 	    		</div>
 	    		<div class="fun_area">
 	    			<div id="expressions" onclick="javascript:$('#exp').show()">
-	    				 <img src="resource/img/comment/express_icon.png" height="30px" width="30px"></img>
+	    				 <img src="resource/img/comment/express_icon.png" height="25px" width="25px"></img>
 	    			</div>
 	    			<span class="tips"><em class="limit" id="limit">140</em>/140</span>                                        
 	    			<input id="btn" type="button" class="sub_button" onclick="subComment()" value="发布"></input>
@@ -45,7 +62,66 @@
                 		<ul class="content clearfix"></ul>
             	</div>	
 	    	</div>	    			
+	    </div>
+	    <div class="bottom_list">
+	    	<div class="bottom_zhuanfa">
+	    		<img src="resource/img/comment/转发.png" width="20px" height="20px"> <span> 转发</span>
+	    	</div>
+	    	<div class="bottom_pinglun" id="bot_pinglun">
+	    		<img src="resource/img/comment/评论.png" width="20px" height="20px"> <span> 评论</span>
+	    	</div>
+	    	<div class="bottom_zan">
+	    		<img src="resource/img/comment/点赞.png" width="25px" height="25px"> <span> 赞</span>
+	    	</div>	
 	    </div>	
+	    <div id="comment_area">
+	    	<div id="comment_area_top">
+	    		<div style="display: inline-block;vertical-align: middle; width: 80%;height: 100%">
+	    			<textarea class="comment_content_min" id="comment_content_1" placeholder="写评论..." autofocus="autofocus"></textarea>
+	    		</div>
+	    		<div id="comment_send">
+	    			<img id="extend_window" style="cursor: pointer;" src="resource/img/comment/全屏.png" width="20px" height="20px">
+	    			<span id="send">发送</span>
+	    		</div>	    		
+	    	</div>
+	    	<div id="comment_area_bottom">
+	    		<input class="check" type="checkbox" value="zhuanfa" name="checkbox1" /><span>同时转发</span>
+	    		<img src="resource/img/comment/添加图片.png" width="20px" height="20px">
+	    		<img src="resource/img/comment/艾特.png" width="16px" height="16px" >
+	    		<img src="resource/img/comment/gif.png" width="20px" height="20px">
+	    		<img src="resource/img/comment/笑脸.png" width="20px" height="20px">
+	    		<img src="resource/img/comment/加号.png" width="18px" height="18px">
+	    	</div>
+	    </div>
+	    <div id="cover">
+	    </div>
+	</div>
+	<div id="comment_area_extend">
+		<div id="comment_area_top_extend">
+	    	 <div id="close">取消</div>
+	    	 <div id="send_title">
+	    	 	<div style="font-size: 20px;">
+	    	 		发评论
+	    	 	</div>
+	    	 	<div style="font-size: 12px;color: #AAAAAA;margin-top: 2px;">
+	    	 		伦敦星心之暗
+	    	 	</div>
+	    	 </div>
+	    	 <div id="send_btn">
+	    	 	<button id="btn" class="send_btn_unactive">发送</button>
+	    	 </div>  		
+	    </div>
+	    <div id="comment_area_mid_extend">
+	    	<textarea id="comment_content_2" class="comment_content_max" placeholder="写评论..." autofocus="autofocus"></textarea>
+	    </div>
+		<div id="comment_area_bottom_extend">
+	    		<input class="check_extend" type="checkbox" value="zhuanfa" name="checkbox1" /><span>同时转发</span>
+	    		<img src="resource/img/comment/添加图片.png" width="20px" height="20px">
+	    		<img src="resource/img/comment/艾特.png" width="16px" height="16px" >
+	    		<img src="resource/img/comment/gif.png" width="20px" height="20px">
+	    		<img src="resource/img/comment/笑脸.png" width="20px" height="20px">
+	    		<img src="resource/img/comment/加号.png" width="18px" height="18px">
+	    	</div>
 	</div>
 	<script type="text/javascript" src="resource/js/comment/comment_express.js"></script>
 </body>

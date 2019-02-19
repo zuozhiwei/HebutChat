@@ -20,7 +20,7 @@
             	// minute = date.getMinutes(),
             	// second = date.getSeconds();
 			if(comment_content == ""){
-				alert("内容不能为空");
+				alert("评论不能为空");
 				return;
 			}
 			$.ajax({
