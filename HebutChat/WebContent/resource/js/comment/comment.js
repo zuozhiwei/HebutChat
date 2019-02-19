@@ -24,14 +24,14 @@ $(function(){
 		$("#comment_area").hide();
 		$(".bottom_list").show();
 	});
-	$(window).scroll(function() {
-		if(flag==1) {
-		cover.style.display="none";
-		$("#comment_area").hide();
-		$(".bottom_list").show();
-		flag = 0;
-		}
-	});
+//	$(window).scroll(function() {
+//		if(flag==1) {
+//		cover.style.display="none";
+//		$("#comment_area").hide();
+//		$(".bottom_list").show();
+//		flag = 0;
+//		}
+//	});
 
 	//窗口扩展
 
@@ -80,24 +80,25 @@ $(function(){
 	var zan = 0;
     $(".bottom_zan").click(function() {
     	if(zan == 0){
-    		$(".bottom_zan img").attr('src', 'resource/img/comment/点赞按.png');
+    		$(".bottom_zan img").attr('src', 'resource/img/comment/赞(1).png');
     		zan = 1;
     	}
     	else{
-    		$(".bottom_zan img").attr('src', 'resource/img/comment/点赞.png');
+    		$(".bottom_zan img").attr('src', 'resource/img/comment/赞.png');
     		zan = 0;
     	}
     	
     });
 
 
+
 	//监听输入
 
 	//按钮颜色变化
-     $("#comment_content_2").keydown(function(e)
+     $("#comment_content_2").keyup(function(e)
 		 {
         	var text = $(this).val(),
-               	len = text.length-1;
+               	len = text.length;
             if(len <= 0)
             {
             	$("#send_btn button").removeClass('send_btn_active');
@@ -112,10 +113,10 @@ $(function(){
             }
      }); 
 
-      $("#comment_content_1").keydown(function(e)
+      $("#comment_content_1").keyup(function(e)
 		 {
         	var text = $(this).val(),
-               	len = text.length-1;
+               	len = text.length;
             if(len>0)
             {
             	$("#send").css({"color":"#EE7621","cursor":"pointer"});
