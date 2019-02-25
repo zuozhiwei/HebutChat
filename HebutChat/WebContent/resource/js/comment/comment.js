@@ -2,7 +2,7 @@
 $(window).scroll(function () {
 	 if ($(this).scrollTop() > 0){
 	 	var username = $("#username").text();
-	 	$("#title_text").html('<div id="title_text" class="titletext">username<img class="guanzhu" src="resource/img/comment/加关注 (1).png" width="55px" height="20px"></div>');
+	 	$("#title_text").html('<div id="title_text" class="titletext">username<img class="guanzhu" src="resource/img/comment/follow.png" width="55px" height="20px"></div>');
 	 }
 	 else{
 	 	$("#title_text").text("微博正文");
@@ -54,24 +54,24 @@ $(function(){
 	$("#zhuanfa_show").click(function() {
 		$('#zhuanfa_content').show();
 		$('#talking_content,#dianzan_content').hide();
-		$('#line_zhuanfa').attr('src', 'resource/img/comment/下划线.png');
-		$('#line_zan,#line_pinglun').attr('src', 'resource/img/comment/下划线 (1).png');
+		$('#line_zhuanfa').attr('src', 'resource/img/comment/bottom_line.png');
+		$('#line_zan,#line_pinglun').attr('src', 'resource/img/comment/bottom_line_none.png');
 		$('#zhuanfa_show span,#zhuanfa_num').css({'color':'black','font-weight':'bold'});
 		$('#pinglun_show span,#pinglun_num,#dianzan_show span,#dianzan_num').css({'color':'gray','font-weight':'normal'});
 	});
 	$("#pinglun_show").click(function() {
 		$('#talking_content').show();
 		$('#dianzan_content,#zhuanfa_content').hide();
-		$('#line_pinglun').attr('src', 'resource/img/comment/下划线.png');
-		$('#line_zan,#line_zhuanfa').attr('src', 'resource/img/comment/下划线 (1).png');
+		$('#line_pinglun').attr('src', 'resource/img/comment/bottom_line.png');
+		$('#line_zan,#line_zhuanfa').attr('src', 'resource/img/comment/bottom_line_none.png');
 		$('#pinglun_show span,#pinglun_num').css({'color':'black','font-weight':'bold'});
 		$('#zhuanfa_show span,#zhuanfa_num,#dianzan_show span,#dianzan_num').css({'color':'gray','font-weight':'normal'});
 	});
 	$("#dianzan_show").click(function() {
 		$('#dianzan_content').show();
 		$('#talking_content,#zhuanfa_content').hide();
-		$('#line_zan').attr('src', 'resource/img/comment/下划线.png');
-		$('#line_zhuanfa,#line_pinglun').attr('src', 'resource/img/comment/下划线 (1).png');
+		$('#line_zan').attr('src', 'resource/img/comment/bottom_line.png');
+		$('#line_zhuanfa,#line_pinglun').attr('src', 'resource/img/comment/bottom_line_none.png');
 		$('#dianzan_show span,#dianzan_num').css({'color':'black','font-weight':'bold'});
 		$('#zhuanfa_show span,#zhuanfa_num,#pinglun_show span,#pinglun_num').css({'color':'gray','font-weight':'normal'});
 	});
@@ -80,11 +80,11 @@ $(function(){
 	var zan = 0;
     $(".bottom_zan").click(function() {
     	if(zan == 0){
-    		$(".bottom_zan img").attr('src', 'resource/img/comment/赞(1).png');
+    		$(".bottom_zan img").attr('src', 'resource/img/comment/zan_after.png');
     		zan = 1;
     	}
     	else{
-    		$(".bottom_zan img").attr('src', 'resource/img/comment/赞.png');
+    		$(".bottom_zan img").attr('src', 'resource/img/comment/zan_before.png');
     		zan = 0;
     	}
     	
