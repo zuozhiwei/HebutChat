@@ -5,6 +5,9 @@
 			background-color: #eee;
 			width: 100%;
 			height: 100%;
+			position: absolute;
+			top:0;
+			left: 0;
 		}
 		#weibocontent{
 			padding-top: 10px;
@@ -226,11 +229,11 @@
 	    {
 	    	background-color: #eee;
 	    }
-	    .bottom_zan:hover
+	   /* .bottom_zan:hover
 	    {
 	    	background-color: #eee;
 	    }
-
+*/
 	    #comment_area{
 	    	height: 20%;
 	    	position: fixed;
@@ -305,6 +308,7 @@
 			display: none;
 			background-color: #F8F8FF;
 			position:absolute;left:0px;top:0px;
+			overflow-x: hidden;
 		}
 
 			 
