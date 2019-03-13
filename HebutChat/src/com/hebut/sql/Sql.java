@@ -3,12 +3,7 @@ package com.hebut.sql;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 
 public class Sql {
@@ -77,50 +72,5 @@ public class Sql {
 	public static void main(String[] args) {
 		Sql sql = new Sql();
 		sql.connect();
-	}
-
-	/**
-	 * 添加反馈记录
-	 * @param content	反馈内容
-	 * @param email		邮箱
-	 * @return			true or false
-	 */
-	public Boolean addFeedback(String content, String email) {
-		connect();
-		String sql = "insert into feedback(`content`,`email`) values('"+content+"','"+email+"')";
-		try {
-			stmt = conn.createStatement();
-			stmt.executeUpdate(sql);
-		} catch (SQLException e) {
-			return false;
-		} finally {
-			close();
-		}
-		return true;
-	}
-
-	public List<HashMap<String, Object>> getFeedbackList() {
-		connect();
-		List<HashMap<String, Object>> list = new ArrayList<>();
-		try {
-			stmt = conn.createStatement();
-			String sql = "select * from feedback";
-			result = stmt.executeQuery(sql);
-			ResultSetMetaData md = result.getMetaData(); //获得结果集结构信息,元数据
-			int columnCount = md.getColumnCount();
-			while (result.next()) {
-				HashMap<String,Object> rowData = new HashMap<String,Object>();
-				for (int i = 1; i <= columnCount; i++) {
-					rowData.put(md.getColumnName(i), result.getObject(i));
-				}
-				list.add(rowData);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			list = null;
-		} finally {
-			close();
-		}
-		return list;
 	}
 }
